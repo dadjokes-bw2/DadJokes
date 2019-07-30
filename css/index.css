@@ -201,7 +201,7 @@ p {
   padding-top: 2rem;
 }
 .banner h1 {
-  font-family: 'Jacques Francois Shadow', cursive;
+  font-family: "Jacques Francois Shadow", cursive;
   display: flex;
   flex-direction: row;
   margin: 0 auto;
@@ -295,6 +295,32 @@ nav ul a:hover {
     margin: 0 auto;
     height: 30rem;
   }
+}
+.banner-jokes {
+  width: 100%;
+  font-size: 4rem;
+  background-color: ghostwhite;
+  padding-top: 2rem;
+}
+.banner-jokes h1 {
+  font-family: "Jacques Francois Shadow", cursive;
+  display: flex;
+  flex-direction: row;
+  margin: 0 auto;
+  padding-bottom: 2.5rem;
+  align-items: center;
+  justify-content: center;
+  font-size: 8.8rem;
+  font-weight: 400;
+  color: #0C4A60;
+}
+.banner-jokes nav {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
 }
 footer {
   color: #22283B;
@@ -641,4 +667,80 @@ i:hover {
 }
 @media only screen and (max-width: 500px) {
   flex-wrap: wrap-reverse;
+}
+.intro-jokes .dads {
+  width: 95%;
+  height: auto;
+}
+.intro-jokes h2 {
+  padding: 20px 0;
+}
+.joke-generator {
+  width: 100%;
+  display: inline-block;
+}
+.joke-generator img {
+  width: 28%;
+  border-radius: 20px;
+  margin: 20px 2.5%;
+  height: auto;
+}
+.joke-generator button {
+  width: 28%;
+  height: 30px;
+  margin: 20px 2.5%;
+  color: white;
+  font-size: 2rem;
+  border-radius: 5px;
+  background-color: #EF6C33;
+  cursor: pointer;
+}
+.joke-generator button:hover {
+  background-color: #0C4A60;
+}
+.lower-content {
+  width: 75%;
+  padding: 20px 0;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+}
+.lower-content h2 {
+  margin: auto;
+}
+.lower-content p {
+  padding-top: 20px;
+}
+.lower-image {
+  display: flex;
+  flex-direction: column;
+  width: 65%;
+}
+.lower-image .enter {
+  width: 280px;
+  border-radius: 20px;
+  margin: 20px 2.5%;
+  height: auto;
+  z-index: -1;
+  display: flex;
+  justify-content: flex-end;
+}
+.lower-image .btn {
+  width: 100px;
+  height: 50px;
+  position: relative;
+  top: -77%;
+  left: 10%;
+  transform: translate(-50%, 50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #EF6C33;
+  color: white;
+  font-size: 2rem;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.lower-image .btn:hover {
+  background-color: #0C4A60;
 }
