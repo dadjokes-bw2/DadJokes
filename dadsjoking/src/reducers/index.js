@@ -13,17 +13,24 @@ import {
   ADD_PUBLIC_JOKE_SUCCESS,
   DELETE_PUBLIC_JOKE,
   DELETE_PUBLIC_JOKE_FAILED,
-  DELETE_PUBLIC_JOKE_SUCCESS
+  DELETE_PUBLIC_JOKE_SUCCESS,
+  GET_PRIVATE_JOKES,
+  GET_PRIVATE_JOKES_SUCCESS,
+  GET_PRIVATE_JOKES_FAILED,
+  ADD_PRIVATE_JOKE,
+  ADD_PRIVATE_JOKE_FAILED,
+  ADD_PRIVATE_JOKE_SUCCESS
 } from '../actions/index'
 
 
 const initialState = {
   username: "",
   password: "",
-  isLoggedIn: false,
+  isLoggedIn: null,
   isLoading: false,
   errorMessage: null,
-  jokes: []
+  publicJokes: [],
+  privateJokes: []
 };
 
 export const rootReducer = (state = initialState, action) => {
@@ -91,10 +98,34 @@ export const rootReducer = (state = initialState, action) => {
     }
     case GET_PUBLIC_JOKES_SUCCESS: {
       console.log(action.payload)
-      const newJokes = state.jokes.concat(action.payload)
+      const newJokes = state.publicJokes.concat(action.payload)
       return {
         ...state,
-        jokes: newJokes,
+        publicJokes: newJokes,
+        isLoading: false,
+        errorMessage: null
+      }
+    }
+    case GET_PRIVATE_JOKES: {
+      return {
+        ...state,
+        isLoading: true,
+        errorMessage: null
+      }
+    }
+    case GET_PRIVATE_JOKES_FAILED: {
+      return {
+        ...state,
+        isLoading: false,
+        errorMessage: action.payload
+      }
+    }
+    case GET_PRIVATE_JOKES_SUCCESS: {
+      console.log(action.payload)
+      const newJokes = state.privateJokes.concat(action.payload)
+      return {
+        ...state,
+        privateJokes: newJokes,
         isLoading: false,
         errorMessage: null
       }
@@ -117,10 +148,36 @@ export const rootReducer = (state = initialState, action) => {
     }
     case ADD_PUBLIC_JOKE_SUCCESS: {
       console.log(action.payload)
-      const newJokes = state.jokes.concat(action.payload)
+      const newJokes = state.publicJokes.concat(action.payload)
       return {
         ...state,
-        jokes: newJokes,
+        publicJokes: newJokes,
+        isLoading: false,
+        errorMessage: null
+      }
+    }
+    case ADD_PRIVATE_JOKE: {
+      console.log(action.payload)
+      return {
+        ...state,
+        isLoading: true,
+        errorMessage: null,
+      }
+    }
+    case ADD_PRIVATE_JOKE_FAILED: {
+      console.log(action.payload)
+      return {
+        ...state,
+        isLoading: false,
+        errorMessage: action.payload
+      }
+    }
+    case ADD_PRIVATE_JOKE_SUCCESS: {
+      console.log(action.payload)
+      const newJokes = state.privateJokes.concat(action.payload)
+      return {
+        ...state,
+        privateJokes: newJokes,
         isLoading: false,
         errorMessage: null
       }

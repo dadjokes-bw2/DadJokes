@@ -17,6 +17,7 @@ class LandingPage extends React.Component {
                 <h1>Dad Jokes</h1>
                 <h2>Welcome to Dad Jokes</h2>
                 <Link to = '/publicJokes'><Button outline color = 'primary'>Public Jokes!</Button></Link><br/>
+                <Link to = '/privateJokes'><Button outline color = 'primary'>Private Jokes!</Button></Link><br/>
                 <Link to = '/signup'><Button outline color = 'secondary'>Sign Up!</Button>{' '}</Link>
                 <Link to = '/login'><Button outline color = 'secondary'>Log In</Button>{' '}</Link>
                 
@@ -29,6 +30,7 @@ class LandingPage extends React.Component {
                     <h1>Dad Jokes</h1>
                     <h2>Welcome to Dad Jokes</h2>
                     <Link to = '/publicJokes'><Button outline color = 'primary'>Public Jokes!</Button></Link><br/>
+                    <Link to = '/privateJokes'><Button outline color = 'primary'>Private Jokes!</Button></Link><br/>
                     </section>
             )}
     }

@@ -6,7 +6,6 @@ export default function(props) {
         component: Component,
         ...rest
     } = props
-    console.log(rest)
 
     // rest === {exact: true, path: '/'}
   return (

@@ -6,7 +6,7 @@ import {Button, Form, FormGroup, Label, Input, FormText} from 'reactstrap'
 import NavBar from '../components/NavBar'
 
 
-class AddJoke extends React.Component {
+class AddPublicJoke extends React.Component {
     constructor() {
         super()
         this.state = {
@@ -65,4 +65,4 @@ export default withRouter(
     connect(
         mapStateToProps,
         mapDispatchToProps
-    )(AddJoke))
+    )(AddPublicJoke))

@@ -70,6 +70,7 @@ export function login(username, password) {
         return axios.post("https://backend-dadjokes.herokuapp.com/api/auth/login", user)
             .then((res) => {
                 console.log(res)
+                localStorage.setItem('token', res.data.token)
                 dispatch({type: LOG_IN_SUCCESS})
             })
             .catch((err) => {
@@ -94,16 +95,32 @@ export function getPublicJokes() {
 }
 
 export function getPrivateJokes() {
+    return dispatch => {
+        dispatch({type: GET_PRIVATE_JOKES})
 
+        const headers = {
+            Authorization: localStorage.getItem('token')
+        }
+
+        axios.get("https://backend-dadJokes.herokuapp.com/api/privateJokes", {headers})
+            .then((res) => {
+                dispatch({type: GET_PRIVATE_JOKES_SUCCESS, payload: res.data })
+            })
+            .catch((err) => {
+                dispatch({type: GET_PRIVATE_JOKES_FAILED, payload: err})
+            })
+    }
 }
 
 export function addPublicJoke(joke) {
     return dispatch => {
         dispatch({type:ADD_PUBLIC_JOKE})
 
-        
+        const body = {
+            joke
+        }      
 
-        return axios.post("https://backend-dadJokes.herokuapp.com/api/publicJokes", {joke})
+        return axios.post("https://backend-dadJokes.herokuapp.com/api/publicJokes", {body})
             .then((res) => {
                 console.log(res)
                 dispatch({type: ADD_PUBLIC_JOKE_SUCCESS})
@@ -116,11 +133,29 @@ export function addPublicJoke(joke) {
 }
 
 export function addPrivateJoke(joke) {
-
+    return dispatch => {
+        dispatch({type: ADD_PRIVATE_JOKE})
+        const headers = {
+            Authorization: localStorage.getItem('token'),
+        }
+        const body = {
+            joke
+        }
+        console.log(headers, body)
+        return axios.post("https://backend-dadJokes.herokuapp.com/api/privateJokes", headers, body)
+            .then((res) => {
+                console.log(res)
+                dispatch({type: ADD_PRIVATE_JOKE_SUCCESS})
+            })
+            .catch((err) => {
+                console.log(err)
+                dispatch({type: ADD_PRIVATE_JOKE_FAILED})
+            })
+    }
 }
 
-export function editPublicJoke(joke) {
-
+export function editPrivateJoke(joke) {
+   
 }
 
 export function deletePublicJoke(id) {
