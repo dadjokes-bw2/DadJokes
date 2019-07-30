@@ -123,8 +123,21 @@ export function editPublicJoke(joke) {
 
 }
 
-export function deletePublicJoke(joke) {
+export function deletePublicJoke(id) {
+    return dispatch => {
+        dispatch({ type: DELETE_PUBLIC_JOKE})
+        console.log(id)
 
+        return axios.delete(`https://backend-dadJokes.herokuapp.com/api/publicJokes/${id}`)
+            .then((res) => {
+                console.log(res)
+                dispatch({type: DELETE_PUBLIC_JOKE_SUCCESS})
+            })
+            .catch((err) => {
+                console.log(err)
+                dispatch({type: DELETE_PUBLIC_JOKE_FAILED})
+            })
+    }
 }
 
 export function deletePrivateJoke(joke) {

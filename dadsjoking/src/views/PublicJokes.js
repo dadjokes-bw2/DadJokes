@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {getPublicJokes} from '../actions/index'
+import {getPublicJokes, deletePublicJoke} from '../actions/index'
 import {withRouter, Link} from 'react-router-dom'
 import {
     Card, CardBody, CardText, Button,
@@ -13,8 +13,6 @@ function PublicJokes(props) {
     if (isLoading) {
         return <p>Loading Jokes...</p>
     }
-
-    
     
         return (
             <section className = 'public-jokes'>
@@ -25,8 +23,8 @@ function PublicJokes(props) {
                         <Card key = {joke.id}>
                             <CardBody>
                                 <CardText>{joke.joke}</CardText>
-                                <Button outline color = 'primary'>✖</Button>
-                                <Button outline color = 'primary'>✏</Button>
+                                <Button outline color = 'primary' onClick = {() => {props.deletePublicJoke(joke.id)}}>✖</Button>
+                                <Button outline color = 'primary' >✏</Button>
                             </CardBody>
                             
                         </Card>
@@ -47,7 +45,8 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = {
-    getPublicJokes
+    getPublicJokes,
+    deletePublicJoke
 }
 
 export default withRouter(
