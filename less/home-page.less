@@ -6,12 +6,16 @@ h2, h3 {
 .intro {
   h2 {
 		padding: 15px;
-  }
+	}
 
   p {
     padding: 0 15px;
     width: 95%;
-  }
+	} 
+
+	@media @phone {
+		margin-bottom: 1rem;
+	}
 
   img {
     border-radius: 5px;
@@ -30,6 +34,10 @@ h2, h3 {
 		}
 		@media @tablet {
 			height: 300px;
+		}
+
+		@media @tinyPhone {
+			height: 225px;
 		}
   }
 }
@@ -127,6 +135,7 @@ h2, h3 {
     display: flex;
 		justify-content: center;
 		border-radius: 10px;
+		margin-top: 1rem;
   }
 }
 
@@ -186,6 +195,7 @@ h2, h3 {
     }
   }
 }
+
 .btn {
 	.btn-mixin(white, pointer, 30rem, 30px, 5px);
 	
@@ -216,26 +226,44 @@ h2, h3 {
   }
 }
 
+#contact {
+	@media @phone {
+		margin-top: 1rem;
+	}
+	@media @tinyPhone {
+		// justify-content: flex-start;
+		flex-direction: column;
+	}
+}
+
 .devs {
 	display: flex;
+	margin: 0 1.5rem;
 	justify-content: space-between;
-	align-items: center;
-	margin: 0 auto;
+	font-size: 1.8rem;
+	text-align: justify;
 
-	@media @tablet {
-		margin: 15px;
-	}
-	@media @phone {
-		margin: 1rem;
-		// flex-direction: column;
-		flex-wrap: wrap;
-		margin: 0 8rem;
-		justify-content: space-between;
+	td {
+		padding: 0 3rem;
+		
+		
+		@media @phone {
+			margin: 1rem;
+			// flex-direction: column;
+			flex-wrap: wrap;
+			padding: 0 .5rem;
+			justify-content: space-between;
+		}
+		@media @tinyPhone {
+			justify-content: flex-start;
+			padding: 0 .2rem;
+			margin-right: 0;
+		}
 	}
 }
 
 .devTitle {
-	@media @phone {
+	@media @hideTitle {
 		display: none;
 	}
 }
@@ -244,6 +272,7 @@ i {
 	color: @orange;
 	font-size: 2.5rem;
 	margin: 10px;
+	display: inline;
 
 	&:hover {
 		color: @dark-blue;

@@ -241,6 +241,9 @@ nav ul {
   align-items: center;
   padding: 0 5px;
 }
+nav ul li {
+  margin: 1rem 0;
+}
 @media only screen and (max-width: 500px) {
   nav ul {
     margin: 0 auto;
@@ -266,14 +269,15 @@ nav ul a {
   background-color: #EF6C33;
   border-radius: 10px;
 }
-@media only screen and (max-width: 500px) {
-  nav ul a {
-    border-radius: 15px;
-  }
-}
 @media only screen and (max-width: 800px) {
   nav ul a {
     margin: 0.5rem;
+  }
+}
+@media only screen and (max-width: 500px) {
+  nav ul a {
+    border-radius: 15px;
+    margin-top: 3rem;
   }
 }
 nav ul a:hover {
@@ -319,6 +323,11 @@ h3 {
   padding: 0 15px;
   width: 95%;
 }
+@media only screen and (max-width: 500px) {
+  .intro {
+    margin-bottom: 1rem;
+  }
+}
 .intro img {
   border-radius: 5px;
   width: 95%;
@@ -337,6 +346,11 @@ h3 {
 @media only screen and (max-width: 800px) {
   .intro img {
     height: 300px;
+  }
+}
+@media only screen and (max-width: 320px) {
+  .intro img {
+    height: 225px;
   }
 }
 .dad-joke-images {
@@ -428,6 +442,7 @@ h3 {
     display: flex;
     justify-content: center;
     border-radius: 10px;
+    margin-top: 1rem;
   }
 }
 .question {
@@ -523,26 +538,42 @@ h3 {
     align-items: center;
   }
 }
-.devs {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 0 auto;
-}
-@media only screen and (max-width: 800px) {
-  .devs {
-    margin: 15px;
+@media only screen and (max-width: 500px) {
+  #contact {
+    margin-top: 1rem;
   }
 }
+@media only screen and (max-width: 320px) {
+  #contact {
+    flex-direction: column;
+  }
+}
+.devs {
+  display: flex;
+  margin: 0 1.5rem;
+  justify-content: space-between;
+  font-size: 1.8rem;
+  text-align: justify;
+}
+.devs td {
+  padding: 0 3rem;
+}
 @media only screen and (max-width: 500px) {
-  .devs {
+  .devs td {
     margin: 1rem;
     flex-wrap: wrap;
-    margin: 0 8rem;
+    padding: 0 0.5rem;
     justify-content: space-between;
   }
 }
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 320px) {
+  .devs td {
+    justify-content: flex-start;
+    padding: 0 0.2rem;
+    margin-right: 0;
+  }
+}
+@media only screen and (max-width: 560px) {
   .devTitle {
     display: none;
   }
@@ -551,6 +582,7 @@ i {
   color: #EF6C33;
   font-size: 2.5rem;
   margin: 10px;
+  display: inline;
 }
 i:hover {
   color: #0C4A60;
@@ -566,15 +598,14 @@ i:hover {
   justify-content: center;
   align-items: center;
   color: #0C4A60;
-  padding: 15px;
+  padding: 30px;
 }
 .about-us {
-  border: 1px solid blue;
   display: flex;
 }
 .about-us img {
-  border-radius: 55%;
-  width: 25%;
+  border-radius: 50%;
+  width: 20%;
 }
 @media only screen and (max-width: 500px) {
   .about-us {
@@ -587,6 +618,7 @@ i:hover {
   color: #EF6C33;
   padding: 15px 0 5px 0;
   margin: 0 auto;
+  margin-left: 30px;
 }
 .about-us p {
   display: flex;

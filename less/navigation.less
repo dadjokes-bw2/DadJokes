@@ -29,29 +29,30 @@
 }
 
 .banner h1 {
-    font-family: 'Jacques Francois Shadow', cursive;
-    display: flex;
-    flex-direction: row;
-    margin: 0 auto;
-    padding-bottom: 2.5rem;
-    align-items: center;
-    justify-content: center;
-    font-size: 8.8rem;
-    font-weight: 400;
-    color: @dark-blue;
-
-    @media @phone {
+        font-family: 'Jacques Francois Shadow', cursive;
+        display: flex;
+        flex-direction: row;
         margin: 0 auto;
+        padding-bottom: 2.5rem;
         align-items: center;
         justify-content: center;
-        font-size: 6rem;
-    }
-    @media @tinyPhone {
-        font-size: 4.5rem;
-        font-weight: 200;
-    }
-}
+        font-size: 8.8rem;
+        font-weight: 400;
+        color: @dark-blue;
 
+        
+        @media @phone {
+            margin: 0 auto;
+            align-items: center;
+            justify-content: center;
+            font-size: 6rem;
+        }
+        @media @tinyPhone {
+            font-size: 4.5rem;
+            font-weight: 200;
+        }
+    }
+    
 nav {
     display: flex;
     flex-direction: column;
@@ -67,6 +68,10 @@ nav {
         justify-content: center;
         align-items: center;
         padding: 0 5px;
+
+        li {
+            margin: 1rem 0;
+        }
         
         @media @phone {
             margin: 0 auto;
@@ -90,14 +95,16 @@ nav {
             margin-right: 3rem;
             background-color: @orange;
             border-radius: 10px;
-
-            @media @phone {
-                border-radius: 15px;
-            }
-
+            
             @media @tablet {
                 margin: .5rem;
             }
+
+            @media @phone {
+                border-radius: 15px;
+                margin-top: 3rem;
+            }
+
 
 
             &:hover {

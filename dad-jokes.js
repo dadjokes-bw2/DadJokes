@@ -104,11 +104,22 @@ jokeThree.addEventListener('mouseout', () => {
 });
 
 jokeFour.addEventListener('mouseover', () => {
-  jokeFour.setAttribute('src', 'img/leftoverJokeTwo.png');
+  jokeFour.setAttribute('src', 'img/pepperJokeTwo.png');
 });
 
 jokeFour.addEventListener('mouseout', () => {
-  jokeFour.setAttribute('src', 'img/leftoverJokeOne.png')
+  jokeFour.setAttribute('src', 'img/pepperJokeOne.png')
 });
 
+let dadJokes = gRated.filter(function(dadJokes) {
+  return dadJokes.rating === 'G'
+});
+
+let dadJokes = pgRated.filter(function(dadJokes) {
+  return dadJokes.rating === 'PG'
+});
+
+let dadJokes = mRated.filter(function(dadJokes) {
+  return dadJokes.rating === 'M'
+});
 

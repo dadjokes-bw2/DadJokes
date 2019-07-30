@@ -1,0 +1,66 @@
+.container {
+    padding: 0 20px;
+    margin: 0 auto;
+    width: 85%;
+
+    h2 {
+        font-size: 5.0rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: @dark-blue;
+        padding: 30px;
+    }
+}
+
+.about-us {
+    display: flex;
+
+    img {
+        border-radius: 50%;
+        width: 20%;
+    }
+
+    @media @phone {
+        width: 50%;
+        flex-direction: column-reverse;
+    }
+
+    h3 {
+        font-size: 3.0rem;
+        color: @main-header-color;
+        padding: 15px 0 5px 0;
+        margin: 0 auto;
+        margin-left: 30px;
+    }
+
+    p {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 85%;
+        padding: 10px 20px;
+        font-size: 1.8rem;
+    }
+
+    @media @phone {
+        width: 98%;
+        margin: auto;
+        flex-direction: column-reverse;
+        padding: 0;
+    }
+}
+
+.reverse {
+    flex-direction: row-reverse;
+
+    @media @tablet {
+        flex-direction: column-reverse;
+    }
+
+    // @media @phone {
+    // 	// flex-direction: column-reverse;
+    // 	// flex-wrap: wrap-reverse;
+    // 	flex-direction: column-reverse;	
+
+}
