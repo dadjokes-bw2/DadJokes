@@ -241,9 +241,6 @@ nav ul {
   align-items: center;
   padding: 0 5px;
 }
-nav ul li {
-  margin: 1rem 0;
-}
 @media only screen and (max-width: 500px) {
   nav ul {
     margin: 0 auto;
@@ -269,15 +266,14 @@ nav ul a {
   background-color: #EF6C33;
   border-radius: 10px;
 }
-@media only screen and (max-width: 800px) {
-  nav ul a {
-    margin: 0.5rem;
-  }
-}
 @media only screen and (max-width: 500px) {
   nav ul a {
     border-radius: 15px;
-    margin-top: 3rem;
+  }
+}
+@media only screen and (max-width: 800px) {
+  nav ul a {
+    margin: 0.5rem;
   }
 }
 nav ul a:hover {
@@ -321,6 +317,56 @@ nav ul a:hover {
   align-items: center;
   padding-bottom: 20px;
   margin-bottom: 20px;
+}
+.banner-jokes nav ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 0 5px;
+}
+.banner-jokes nav ul li {
+  margin: 1rem 0;
+}
+@media only screen and (max-width: 500px) {
+  .banner-jokes nav ul {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+}
+@media only screen and (max-width: 800px) {
+  .banner-jokes nav ul {
+    margin: 0 auto;
+    padding: 0;
+  }
+}
+.banner-jokes nav ul a {
+  text-decoration: none;
+  font-size: 2rem;
+  color: white;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  margin-left: 3rem;
+  margin-right: 3rem;
+  background-color: #EF6C33;
+  border-radius: 10px;
+}
+@media only screen and (max-width: 800px) {
+  .banner-jokes nav ul a {
+    margin: 0.5rem;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .banner-jokes nav ul a {
+    border-radius: 15px;
+    margin-top: 3rem;
+  }
+}
+.banner-jokes nav ul a:hover {
+  background-color: #0C4A60;
+  color: white;
 }
 footer {
   color: #22283B;
@@ -576,7 +622,7 @@ h3 {
 }
 .devs {
   display: flex;
-  margin: 0 1.5rem;
+  margin: 0 auto;
   justify-content: space-between;
   font-size: 1.8rem;
   text-align: justify;
@@ -624,14 +670,15 @@ i:hover {
   justify-content: center;
   align-items: center;
   color: #0C4A60;
-  padding: 30px;
+  padding: 15px;
 }
 .about-us {
+  border: 1px solid blue;
   display: flex;
 }
 .about-us img {
-  border-radius: 50%;
-  width: 20%;
+  border-radius: 55%;
+  width: 25%;
 }
 @media only screen and (max-width: 500px) {
   .about-us {
@@ -644,7 +691,6 @@ i:hover {
   color: #EF6C33;
   padding: 15px 0 5px 0;
   margin: 0 auto;
-  margin-left: 30px;
 }
 .about-us p {
   display: flex;
@@ -743,4 +789,103 @@ i:hover {
 }
 .lower-image .btn:hover {
   background-color: #0C4A60;
+}
+.about-us {
+  border: 1px solid blue;
+  display: flex;
+}
+.about-us img {
+  border-radius: 55%;
+  width: 25%;
+}
+@media only screen and (max-width: 500px) {
+  .about-us {
+    width: 50%;
+    flex-direction: column-reverse;
+  }
+}
+.about-us h3 {
+  font-size: 3rem;
+  color: #EF6C33;
+  padding: 15px 0 5px 0;
+  margin: 0 auto;
+}
+.about-us p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 85%;
+  padding: 10px 20px;
+  font-size: 1.8rem;
+}
+@media only screen and (max-width: 500px) {
+  .about-us {
+    width: 98%;
+    margin: auto;
+    flex-direction: column-reverse;
+    padding: 0;
+  }
+}
+.reverse {
+  flex-direction: row-reverse;
+}
+@media only screen and (max-width: 500px) {
+  flex-wrap: wrap-reverse;
+}
+.container {
+  padding: 0 20px;
+  margin: 0 auto;
+  width: 85%;
+}
+.container h2 {
+  font-size: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #0C4A60;
+  padding: 30px;
+}
+.about-us {
+  display: flex;
+}
+.about-us img {
+  border-radius: 50%;
+  width: 20%;
+}
+@media only screen and (max-width: 500px) {
+  .about-us {
+    width: 50%;
+    flex-direction: column-reverse;
+  }
+}
+.about-us h3 {
+  font-size: 3rem;
+  color: #EF6C33;
+  padding: 15px 0 5px 0;
+  margin: 0 auto;
+  margin-left: 30px;
+}
+.about-us p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 85%;
+  padding: 10px 20px;
+  font-size: 1.8rem;
+}
+@media only screen and (max-width: 500px) {
+  .about-us {
+    width: 98%;
+    margin: auto;
+    flex-direction: column-reverse;
+    padding: 0;
+  }
+}
+.reverse {
+  flex-direction: row-reverse;
+}
+@media only screen and (max-width: 800px) {
+  .reverse {
+    flex-direction: column-reverse;
+  }
 }
