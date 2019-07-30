@@ -8,6 +8,9 @@ import {
   GET_PUBLIC_JOKES,
   GET_PUBLIC_JOKES_FAILED,
   GET_PUBLIC_JOKES_SUCCESS,
+  ADD_PUBLIC_JOKE,
+  ADD_PUBLIC_JOKE_FAILED,
+  ADD_PUBLIC_JOKE_SUCCESS
 } from '../actions/index'
 
 
@@ -39,6 +42,7 @@ export const rootReducer = (state = initialState, action) => {
     case SIGN_UP_SUCCESS: {
       return {
         ...state,
+        isLoggedIn: true,
         isLoading: false,
         errorMessage: null,
       }
@@ -46,6 +50,7 @@ export const rootReducer = (state = initialState, action) => {
     case LOG_IN: {
       return {
         ...state,
+        isLoggedIn: false,
         isLoading: true,
         errorMessage: null
       }
@@ -53,6 +58,7 @@ export const rootReducer = (state = initialState, action) => {
     case LOG_IN_FAILED: {
       return {
         ...state,
+        isLoggedIn: false,
         isLoading: false,
         errorMessage: action.payload
       }
@@ -60,6 +66,7 @@ export const rootReducer = (state = initialState, action) => {
     case LOG_IN_SUCCESS: {
       return {
         ...state,
+        isLoggedIn: true,
         isLoading: false,
         errorMessage: null
       }
@@ -80,6 +87,32 @@ export const rootReducer = (state = initialState, action) => {
       }
     }
     case GET_PUBLIC_JOKES_SUCCESS: {
+      console.log(action.payload)
+      const newJokes = state.jokes.concat(action.payload)
+      return {
+        ...state,
+        jokes: newJokes,
+        isLoading: false,
+        errorMessage: null
+      }
+    }
+    case ADD_PUBLIC_JOKE: {
+      console.log(action.payload)
+      return {
+        ...state,
+        isLoading: true,
+        errorMessage: null,
+      }
+    }
+    case ADD_PUBLIC_JOKE_FAILED: {
+      console.log(action.payload)
+      return {
+        ...state,
+        isLoading: false,
+        errorMessage: action.payload
+      }
+    }
+    case ADD_PUBLIC_JOKE_SUCCESS: {
       console.log(action.payload)
       const newJokes = state.jokes.concat(action.payload)
       return {

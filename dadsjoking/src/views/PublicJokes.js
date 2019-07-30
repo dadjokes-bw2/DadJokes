@@ -1,9 +1,9 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {getPublicJokes} from '../actions/index'
-import {withRouter} from 'react-router-dom'
+import {withRouter, Link} from 'react-router-dom'
 import {
-    Card, CardBody, CardText
+    Card, CardBody, CardText, Button,
 } from 'reactstrap'
 import NavBar from '../components/NavBar'
 
@@ -22,14 +22,17 @@ function PublicJokes(props) {
                 <h2>Public Jokes</h2>
                 {jokes.map((joke) => {
                     return (
-                        <Card>
+                        <Card key = {joke.id}>
                             <CardBody>
                                 <CardText>{joke.joke}</CardText>
+                                <Button outline color = 'primary'>✖</Button>
+                                <Button outline color = 'primary'>✏</Button>
                             </CardBody>
                             
                         </Card>
                     )
                 })}
+                <Link to = '/addJoke'><Button outline color = 'secondary'>Add joke!</Button></Link>
             </section>
         )
     

@@ -34,6 +34,15 @@ export const EDIT_PRIVATE_JOKE = 'EDIT_PRIVATE_JOKE'
 export const EDIT_PRIVATE_JOKE_SUCCESS = 'EDIT_PRIVATE_JOKE_SUCCESS'
 export const EDIT_PRIVATE_JOKE_FAILED = 'EDIT_PRIVATE_JOKE_FAILED'
 
+//Delete Jokes
+export const DELETE_PUBLIC_JOKE = 'DELETE_PUBLIC_JOKE'
+export const DELETE_PUBLIC_JOKE_SUCCESS = 'DELETE_PUBLIC_JOKE_SUCCESS'
+export const DELETE_PUBLIC_JOKE_FAILED = 'DELETE_PUBLIC_JOKE_FAILED'
+
+export const DELETE_PRIVATE_JOKE = 'DELETE_PRIVATE_JOKE'
+export const DELETE_PRIVATE_JOKE_SUCCESS = 'DELETE_PRIVATE_JOKE_SUCCESS'
+export const DELETE_PRIVATE_JOKE_FAILED = 'DELETE_PRIVATE_JOKE_FAILED'
+
 export function signUp(username, password) {
     return dispatch => {
         dispatch({type:SIGN_UP})
@@ -89,7 +98,21 @@ export function getPrivateJokes() {
 }
 
 export function addPublicJoke(joke) {
+    return dispatch => {
+        dispatch({type:ADD_PUBLIC_JOKE})
 
+        
+
+        return axios.post("https://backend-dadJokes.herokuapp.com/api/publicJokes", {joke})
+            .then((res) => {
+                console.log(res)
+                dispatch({type: ADD_PUBLIC_JOKE_SUCCESS})
+            })
+            .catch((err) => {
+                console.log(err)
+                dispatch({type: ADD_PUBLIC_JOKE_FAILED})
+            })
+    }
 }
 
 export function addPrivateJoke(joke) {
@@ -98,4 +121,12 @@ export function addPrivateJoke(joke) {
 
 export function editPublicJoke(joke) {
 
+}
+
+export function deletePublicJoke(joke) {
+
+}
+
+export function deletePrivateJoke(joke) {
+    
 }
