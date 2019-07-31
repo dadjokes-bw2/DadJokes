@@ -596,62 +596,6 @@ i:hover {
   font-size: 5rem;
   display: flex;
   justify-content: center;
-  align-items: center;
-  color: #0C4A60;
-  padding: 15px;
-}
-.about-us {
-  border: 1px solid blue;
-  display: flex;
-}
-.about-us img {
-  border-radius: 55%;
-  width: 25%;
-}
-@media only screen and (max-width: 500px) {
-  .about-us {
-    width: 50%;
-    flex-direction: column-reverse;
-  }
-}
-.about-us h3 {
-  font-size: 3rem;
-  color: #EF6C33;
-  padding: 15px 0 5px 0;
-  margin: 0 auto;
-}
-.about-us p {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 85%;
-  padding: 10px 20px;
-  font-size: 1.8rem;
-}
-@media only screen and (max-width: 500px) {
-  .about-us {
-    width: 98%;
-    margin: auto;
-    flex-direction: column-reverse;
-    padding: 0;
-  }
-}
-.reverse {
-  flex-direction: row-reverse;
-}
-@media only screen and (max-width: 500px) {
-  flex-wrap: wrap-reverse;
-}
-.container {
-  padding: 0 20px;
-  margin: 0 auto;
-  width: 85%;
-}
-.container h2 {
-  font-size: 5rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   color: #0C4A60;
   padding: 30px;
 }
@@ -681,14 +625,13 @@ i:hover {
   align-items: center;
   width: 85%;
   padding: 10px 20px;
-  font-size: 1.8rem;
+  font-size: 2rem;
 }
 @media only screen and (max-width: 500px) {
   .about-us {
     width: 98%;
     margin: auto;
     flex-direction: column-reverse;
-    padding: 0;
   }
 }
 .reverse {
