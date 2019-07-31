@@ -111,6 +111,7 @@ jokeFour.addEventListener('mouseout', () => {
   jokeFour.setAttribute('src', 'img/pepperJokeOne.png')
 });
 
+<<<<<<< HEAD
 let gRated = dadJokes.filter(function(dadJokes) {
   return dadJokes.rating === 'G'
 });
@@ -126,6 +127,19 @@ console.log(pgRated);
 let mRated = dadJokes.filter(function(dadJokes) {
   return dadJokes.rating === 'M'
 });
+=======
+// let dadJokes = gRated.filter(function(dadJokes) {
+//   return dadJokes.rating === 'G'
+// });
+
+// let dadJokes = pgRated.filter(function(dadJokes) {
+//   return dadJokes.rating === 'PG'
+// });
+
+// let dadJokes = mRated.filter(function(dadJokes) {
+//   return dadJokes.rating === 'M'
+// });
+>>>>>>> c1728f874cf49d32821fe1ee3e1c536f736b755f
 
 console.log(mRated);
 
