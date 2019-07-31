@@ -24,7 +24,7 @@ class AddPrivateJoke extends React.Component {
     submit = e => {
         e.preventDefault()
         const {joke} = this.state
-        this.props.addPrivateJoke(joke)
+        this.props.addPrivateJoke({joke})
             .then(() => {
                 this.props.history.push("/privateJokes")
             })

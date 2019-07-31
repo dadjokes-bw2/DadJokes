@@ -19,14 +19,20 @@ import {
   GET_PRIVATE_JOKES_FAILED,
   ADD_PRIVATE_JOKE,
   ADD_PRIVATE_JOKE_FAILED,
-  ADD_PRIVATE_JOKE_SUCCESS
+  ADD_PRIVATE_JOKE_SUCCESS,
+  EDIT_PRIVATE_JOKE,
+  EDIT_PRIVATE_JOKE_FAILED,
+  EDIT_PRIVATE_JOKE_SUCCESS,
+  DELETE_PRIVATE_JOKE,
+  DELETE_PRIVATE_JOKE_FAILED,
+  DELETE_PRIVATE_JOKE_SUCCESS
 } from '../actions/index'
 
 
 const initialState = {
   username: "",
   password: "",
-  isLoggedIn: null,
+  isLoggedIn: false,
   isLoading: false,
   errorMessage: null,
   publicJokes: [],
@@ -157,7 +163,6 @@ export const rootReducer = (state = initialState, action) => {
       }
     }
     case ADD_PRIVATE_JOKE: {
-      console.log(action.payload)
       return {
         ...state,
         isLoading: true,
@@ -206,6 +211,53 @@ export const rootReducer = (state = initialState, action) => {
         errorMessage: null
       }
     }
+    case DELETE_PRIVATE_JOKE: {
+      return {
+        ...state,
+        isLoading: true,
+        errorMessage: null,
+      }
+    }
+    case DELETE_PRIVATE_JOKE_FAILED: {
+      console.log(action.payload)
+      return {
+        ...state,
+        isLoading: false,
+        errorMessage: action.payload
+    }
+  }
+    case DELETE_PRIVATE_JOKE_SUCCESS: {
+      console.log(action.payload)
+      return {
+        ...state,
+        isLoading: false,
+        errorMessage: null
+      }
+    }
+    case EDIT_PRIVATE_JOKE: {
+      console.log(action.payload)
+      return {
+        ...state,
+        isLoading: true,
+        errorMessage: null,
+      }
+    }
+    case EDIT_PRIVATE_JOKE_FAILED: {
+      console.log(action.payload)
+      return {
+        ...state,
+        isLoading: false,
+        errorMessage: action.payload
+    }
+  }
+    case EDIT_PRIVATE_JOKE_SUCCESS: {
+      console.log(action.payload)
+      return {
+        ...state,
+        isLoading: false,
+        errorMessage: null
+    }
+  }
     default:
       return state
   }

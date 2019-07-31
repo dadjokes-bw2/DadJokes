@@ -52,11 +52,11 @@ export function signUp(username, password) {
         return axios.post("https://backend-dadjokes.herokuapp.com/api/auth/register", user)
             .then((res) => {
                 console.log(res)
-                dispatch({type: SIGN_UP_SUCCESS})
+                dispatch({type: SIGN_UP_SUCCESS, payload: res.data})
             })
             .catch((err) => {
                 console.log(err)
-                dispatch({type: SIGN_UP_FAILED})
+                dispatch({type: SIGN_UP_FAILED, payload: err})
             })
     }
 }
@@ -71,11 +71,11 @@ export function login(username, password) {
             .then((res) => {
                 console.log(res)
                 localStorage.setItem('token', res.data.token)
-                dispatch({type: LOG_IN_SUCCESS})
+                dispatch({type: LOG_IN_SUCCESS, payload: res.data})
             })
             .catch((err) => {
                 console.log(err)
-                dispatch({type: LOG_IN_FAILED})
+                dispatch({type: LOG_IN_FAILED, payload: err})
             })
     }
 }
@@ -120,14 +120,14 @@ export function addPublicJoke(joke) {
             joke
         }      
 
-        return axios.post("https://backend-dadJokes.herokuapp.com/api/publicJokes", {body})
+        return axios.post("https://backend-dadJokes.herokuapp.com/api/publicJokes", body)
             .then((res) => {
                 console.log(res)
-                dispatch({type: ADD_PUBLIC_JOKE_SUCCESS})
+                dispatch({type: ADD_PUBLIC_JOKE_SUCCESS, payload: res.data})
             })
             .catch((err) => {
                 console.log(err)
-                dispatch({type: ADD_PUBLIC_JOKE_FAILED})
+                dispatch({type: ADD_PUBLIC_JOKE_FAILED, payload: err})
             })
     }
 }
@@ -135,46 +135,80 @@ export function addPublicJoke(joke) {
 export function addPrivateJoke(joke) {
     return dispatch => {
         dispatch({type: ADD_PRIVATE_JOKE})
+
         const headers = {
-            Authorization: localStorage.getItem('token'),
+            Authorization: localStorage.getItem('token')
         }
-        const body = {
-            joke
-        }
-        console.log(headers, body)
-        return axios.post("https://backend-dadJokes.herokuapp.com/api/privateJokes", headers, body)
+        console.log(joke)
+       
+
+        // console.log(body)
+        // console.log(headers)
+
+        return axios.post("https://backend-dadJokes.herokuapp.com/api/privateJokes", joke, {headers})
             .then((res) => {
                 console.log(res)
-                dispatch({type: ADD_PRIVATE_JOKE_SUCCESS})
+                dispatch({type: ADD_PRIVATE_JOKE_SUCCESS, payload: res.data})
             })
             .catch((err) => {
                 console.log(err)
-                dispatch({type: ADD_PRIVATE_JOKE_FAILED})
+                dispatch({type: ADD_PRIVATE_JOKE_FAILED, payload: err})
             })
     }
 }
 
 export function editPrivateJoke(joke) {
-   
+    return dispatch => {
+        dispatch({type: EDIT_PRIVATE_JOKE})
+        const headers = {
+            Authorization: localStorage.getItem('token'),
+        }
+        const body = {
+            id: joke.id
+        }
+        console.log(headers,body)
+        return axios.put("https://backend-dadJokes.herokuapp.com/api/privateJokes", body, headers )
+            .then((res)=>{
+                console.log(res)
+                dispatch({type: EDIT_PRIVATE_JOKE_SUCCESS, payload: res.data})
+            })
+            .catch((err) => {
+                dispatch({type: EDIT_PRIVATE_JOKE_FAILED, payload: err})
+            })
+    }
 }
 
-export function deletePublicJoke(id) {
+export function deletePublicJoke(joke) {
     return dispatch => {
         dispatch({ type: DELETE_PUBLIC_JOKE})
-        console.log(id)
 
-        return axios.delete(`https://backend-dadJokes.herokuapp.com/api/publicJokes/${id}`)
+        return axios.delete(`https://backend-dadJokes.herokuapp.com/api/publicJokes/${joke}`)
             .then((res) => {
                 console.log(res)
-                dispatch({type: DELETE_PUBLIC_JOKE_SUCCESS})
+                dispatch({type: DELETE_PUBLIC_JOKE_SUCCESS, payload: res.data})
             })
             .catch((err) => {
                 console.log(err)
-                dispatch({type: DELETE_PUBLIC_JOKE_FAILED})
+                dispatch({type: DELETE_PUBLIC_JOKE_FAILED, payload: err})
             })
     }
 }
 
 export function deletePrivateJoke(joke) {
-    
+    return dispatch => {
+        dispatch({ type: DELETE_PRIVATE_JOKE})
+        const headers = {
+            Authorization: localStorage.getItem('token')
+        }
+
+        return axios.delete(`https://backend-dadJokes.herokuapp.com/api/privateJokes/${joke}`, headers)
+            .then((res) => {
+                console.log(res)
+                dispatch({type: DELETE_PRIVATE_JOKE_SUCCESS})
+            })
+            .catch((err) => {
+                console.log(err)
+                dispatch({type: DELETE_PRIVATE_JOKE_FAILED})
+            })
+    }
 }
