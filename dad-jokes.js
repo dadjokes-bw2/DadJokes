@@ -111,15 +111,21 @@ jokeFour.addEventListener('mouseout', () => {
   jokeFour.setAttribute('src', 'img/pepperJokeOne.png')
 });
 
-// let dadJokes = gRated.filter(function(dadJokes) {
-//   return dadJokes.rating === 'G'
-// });
+let gRated = dadJokes.filter(function(dadJokes) {
+  return dadJokes.rating === 'G'
+});
 
-// let dadJokes = pgRated.filter(function(dadJokes) {
-//   return dadJokes.rating === 'PG'
-// });
+console.log(gRated);
 
-// let dadJokes = mRated.filter(function(dadJokes) {
-//   return dadJokes.rating === 'M'
-// });
+let pgRated = dadJokes.filter(function(dadJokes) {
+  return dadJokes.rating === 'PG'
+});
+
+console.log(pgRated);
+
+let mRated = dadJokes.filter(function(dadJokes) {
+  return dadJokes.rating === 'M'
+});
+
+console.log(mRated);
 

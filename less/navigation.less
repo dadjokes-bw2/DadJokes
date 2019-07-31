@@ -8,133 +8,147 @@
 // }
 
 .banner {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
+    // display: flex;
+    // flex-direction: row;
+    // flex-wrap: wrap;
+    // justify-content: center;
+    // align-items: center;
     width: 100%;
     font-size: 4rem;
-    background-color: aliceblue;
-    padding-top: 2.0rem;
+    background-color: ghostwhite;
+    padding-top: 2rem;
+
+    //   .width-margin() {
+    //     // justify-content: center;
+    //     // align-items: center;
+    //     width: 100%;
+    //     font-size: 4rem;
+    //     background-color: aliceblue;
+    //     padding-top: 2.0rem;
+
+    //     @media @phone {
+    //     }
+    //   }
 }
 
 .banner h1 {
-  font-family: "Jacques Francois Shadow", cursive;
-  display: flex;
-  flex-direction: row;
-  margin: 0 auto;
-  padding-bottom: 2.5rem;
-  align-items: center;
-  justify-content: center;
-  font-size: 8.8rem;
-  font-weight: 400;
-  color: @dark-blue;
-
-  @media @phone {
+    font-family: "Jacques Francois Shadow", cursive;
+    display: flex;
+    flex-direction: row;
     margin: 0 auto;
+    padding-bottom: 2.5rem;
     align-items: center;
     justify-content: center;
-    font-size: 6rem;
-  }
-  @media @tinyPhone {
-    font-size: 4.5rem;
-    font-weight: 200;
-  }
+    font-size: 8.8rem;
+    font-weight: 400;
+    color: @dark-blue;
+
+    @media @phone {
+        margin: 0 auto;
+        align-items: center;
+        justify-content: center;
+        font-size: 6rem;
+    }
+
+    @media @tinyPhone {
+        font-size: 4.5rem;
+        font-weight: 200;
+    }
 }
 
 nav {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  align-items: center;
-  padding-bottom: 20px;
-  margin-bottom: 20px;
-
-  ul {
     display: flex;
-    flex-direction: row;
-    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
     align-items: center;
-    padding: 0 5px;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
 
-    @media @phone {
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      flex-wrap: wrap;
+    ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 0 5px;
+
+        @media @phone {
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+        }
+
+        @media @tablet {
+            margin: 0 auto;
+            padding: 0;
+        }
+
+        a {
+            text-decoration: none;
+            font-size: 2rem;
+            color: white;
+            padding-left: 1.5rem;
+            padding-right: 1.5rem;
+            margin-left: 3rem;
+            margin-right: 3rem;
+            background-color: @orange;
+            border-radius: 10px;
+
+            @media @phone {
+                border-radius: 15px;
+            }
+
+            @media @tablet {
+                margin: 0.5rem;
+            }
+
+            &:hover {
+                background-color: @dark-blue;
+                color: white;
+            }
+        }
     }
-
-    @media @tablet {
-      margin: 0 auto;
-      padding: 0;
-    }
-
-    a {
-      text-decoration: none;
-      font-size: 2rem;
-      color: white;
-      padding-left: 1.5rem;
-      padding-right: 1.5rem;
-      margin-left: 3rem;
-      margin-right: 3rem;
-      background-color: @orange;
-      border-radius: 10px;
-
-      @media @phone {
-        border-radius: 15px;
-      }
-
-      @media @tablet {
-        margin: 0.5rem;
-      }
-
-      &:hover {
-        background-color: @dark-blue;
-        color: white;
-      }
-    }
-  }
 }
 
 .dads {
-  border-radius: 5px;
-  width: 100%;
-  margin: 0 auto;
-  height: auto;
-
-  @media @phone {
+    border-radius: 5px;
+    width: 100%;
     margin: 0 auto;
-    height: 30rem;
-  }
+    height: auto;
+
+    @media @phone {
+        margin: 0 auto;
+        height: 30rem;
+    }
 }
 
 
 .banner h1 {
-        font-family: 'Jacques Francois Shadow', cursive;
-        display: flex;
-        flex-direction: row;
+    font-family: 'Jacques Francois Shadow', cursive;
+    display: flex;
+    flex-direction: row;
+    margin: 0 auto;
+    padding-bottom: 2.5rem;
+    align-items: center;
+    justify-content: center;
+    font-size: 8.8rem;
+    font-weight: 400;
+    color: @dark-blue;
+
+
+    @media @phone {
         margin: 0 auto;
-        padding-bottom: 2.5rem;
         align-items: center;
         justify-content: center;
-        font-size: 8.8rem;
-        font-weight: 400;
-        color: @dark-blue;
-
-        
-        @media @phone {
-            margin: 0 auto;
-            align-items: center;
-            justify-content: center;
-            font-size: 6rem;
-        }
-        @media @tinyPhone {
-            font-size: 4.5rem;
-            font-weight: 200;
-        }
+        font-size: 6rem;
     }
-    
+
+    @media @tinyPhone {
+        font-size: 4.5rem;
+        font-weight: 200;
+    }
+}
+
 nav {
 
     display: flex;
@@ -143,7 +157,7 @@ nav {
     align-items: center;
     padding-bottom: 20px;
     margin-bottom: 20px;
-    
+
 
     ul {
         display: flex;
@@ -155,7 +169,7 @@ nav {
         li {
             margin: 1rem 0;
         }
-        
+
         @media @phone {
             margin: 0 auto;
             display: flex;
@@ -178,7 +192,7 @@ nav {
             margin-right: 3rem;
             background-color: @orange;
             border-radius: 10px;
-            
+
             @media @tablet {
                 margin: .5rem;
             }
@@ -191,10 +205,9 @@ nav {
 
 
             &:hover {
-            background-color: @dark-blue;
-            color: white;
+                background-color: @dark-blue;
+                color: white;
             }
-         
+        }
     }
-  }
 }
