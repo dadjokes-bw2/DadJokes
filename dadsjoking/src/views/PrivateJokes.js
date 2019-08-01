@@ -19,12 +19,18 @@ function PrivateJokes(props) {
                 <NavBar />
                 <h2>Private Jokes</h2>
                 {privateJokes.map((joke) => {
+                    const location = {
+                        pathname: `editJoke/${joke.id}`,
+                        state: {
+                            joke: joke.joke
+                        }
+                    }
                     return (
                         <Card key = {joke.id}>
                             <CardBody>
                                 <CardText>{joke.joke}</CardText>
                                 <Button outline color = 'primary' onClick = {() => {props.deletePrivateJoke(joke.id)}}>✖</Button>
-                                <Button outline color = 'primary' onClick = {() => {props.editPrivateJoke(joke.id)}}>✏</Button>
+                                <Link to = {location}><Button outline color = 'primary'>✏</Button></Link>
                             </CardBody>
                             
                         </Card>

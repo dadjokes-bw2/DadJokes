@@ -170,11 +170,9 @@ export function editPrivateJoke(joke) {
         const headers = {
             Authorization: localStorage.getItem('token'),
         }
-        const body = {
-            id: joke.id
-        }
-        console.log(headers,body)
-        return axios.put("https://backend-dadJokes.herokuapp.com/api/privateJokes", body, headers )
+        
+        
+        return axios.put(`https://backend-dadJokes.herokuapp.com/api/privateJokes${joke.id}`, joke.joke, {headers} )
             .then((res)=>{
                 console.log(res)
                 dispatch({type: EDIT_PRIVATE_JOKE_SUCCESS, payload: res.data})
