@@ -129,3 +129,8 @@ let mRated = dadJokes.filter(function(dadJokes) {
 
 console.log(mRated);
 
+let gPreview = gRated.length;
+console.log(gPreview);
+
+let ranNum = Math.floor(Math.random() * gPreview);
+console.log(ranNum);

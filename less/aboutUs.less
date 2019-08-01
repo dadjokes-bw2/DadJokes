@@ -20,12 +20,7 @@ h2 {
     img {
         border-radius: 15%;
         width: 35%;
-        height: 300px;
-    }
-
-    @media @phone {
-        width: 50%;
-        flex-direction: column-reverse;
+        // height: 300px;
     }
 
     h3 {
@@ -40,24 +35,36 @@ h2 {
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 85%;
+        width: 95%;
         padding: 10px 20px;
         font-size: 2.0rem;
     }
 
-    text {
+    @media @tablet {
         display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-        margin: 0 auto;
-        width: 75%;
+        justify-content: space-between;
+        align-items: center;
+
+        .about-us-text {
+            width: 45%;
+        }
+        img {
+            width: 45%;
+        }
     }
 
     @media @phone {
-        width: 98%;
+        max-width: 98%;
         margin: auto;
         flex-direction: column-reverse;
+        
+         .about-us-text {
+             width: 100%;
+          }
+
+         img {
+             width: 90%;
+         }
     }
 }
 
@@ -74,3 +81,7 @@ h2 {
     // 	// flex-wrap: wrap-reverse;
     // 	flex-direction: column-reverse;	
 }
+
+// max-width: 100%;
+// display: block;
+// height: auto;
