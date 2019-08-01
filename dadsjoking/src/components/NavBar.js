@@ -42,6 +42,9 @@ export default class NavBar extends React.Component {
                                 <NavLink href = '/publicJokes'>Public Jokes</NavLink>
                             </NavItem>
                             <NavItem>
+                                <NavLink href = '/privateJokes'>Private Jokes</NavLink>
+                            </NavItem>
+                            <NavItem>
                                 <NavLink href = '/login'>Log in!</NavLink>
                             </NavItem>
                         </Nav>

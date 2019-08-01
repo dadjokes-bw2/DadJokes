@@ -1,5 +1,5 @@
 import React from 'react'
-import {addPublicJoke} from '../actions/index'
+import {addPublicJoke, getPublicJokes} from '../actions/index'
 import {connect} from 'react-redux'
 import {withRouter} from 'react-router-dom'
 import {Button, Form, FormGroup, Label, Input, FormText} from 'reactstrap'
@@ -58,7 +58,8 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = {
-    addPublicJoke
+    addPublicJoke,
+    getPublicJokes
 }
 
 export default withRouter(

@@ -7,13 +7,21 @@ import {
 } from 'reactstrap'
 import NavBar from '../components/NavBar'
 
-function PublicJokes(props) {
-    const {isLoading, errorMessage, publicJokes} = props
-
-    if (isLoading) {
-        return <p>Loading Jokes...</p>
+class PublicJokes extends React.Component {
+    delete = e => {
+        e.preventDefault()
+        console.log(e.target)
+        this.props.deletePublicJoke(e.target.id)
+        this.props.getPublicJokes()
     }
-    
+
+    render() {
+        const {isLoading, errorMessage, publicJokes} = this.props
+
+        if (isLoading) {
+            return <p>Loading Jokes...</p>
+        }
+        
         return (
             <section className = 'public-jokes'>
                 <NavBar />
@@ -23,7 +31,7 @@ function PublicJokes(props) {
                         <Card key = {joke.id}>
                             <CardBody>
                                 <CardText>{joke.joke}</CardText>
-                                <Button outline color = 'primary' onClick = {() => {props.deletePublicJoke(joke.id)}}>✖</Button>
+                                <Button outline color = 'primary' onClick = {this.delete} id = {joke.id}>✖</Button>
                             </CardBody>
                             
                         </Card>
@@ -33,6 +41,7 @@ function PublicJokes(props) {
             </section>
         )
     
+}
 }
 
 const mapStateToProps = state => {

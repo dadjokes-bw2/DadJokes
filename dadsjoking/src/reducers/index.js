@@ -26,239 +26,244 @@ import {
   DELETE_PRIVATE_JOKE,
   DELETE_PRIVATE_JOKE_FAILED,
   DELETE_PRIVATE_JOKE_SUCCESS
-} from '../actions/index'
+} from "../actions/index";
+import jwtDecode from "jwt-decode";
 
-
-const initialState = {
-  username: "",
-  password: "",
-  isLoggedIn: false,
-  isLoading: false,
+const initialState = (token => ({
+  currentUser: token ? jwtDecode(token) : null,
+  isAuthenticating: true,
+  isLoading: true,
   errorMessage: null,
   publicJokes: [],
   privateJokes: []
-};
+}))(localStorage.token);
 
 export const rootReducer = (state = initialState, action) => {
-  switch(action.type) {
+  switch (action.type) {
     case SIGN_UP: {
       return {
         ...state,
-        isLoading: true,
-        errorMessage: null
-      }
+        isAuthenticating: true
+      };
     }
     case SIGN_UP_FAILED: {
       return {
         ...state,
-        errorMessage: action.payload,
-        isLoading: false
-      }
+        errorMessage: action.payload.message,
+        isAuthenticating: false
+      };
     }
     case SIGN_UP_SUCCESS: {
       return {
         ...state,
-        isLoggedIn: true,
-        isLoading: false,
-        errorMessage: null,
-      }
+        currentUser: action.user.username,
+        isAuthenticating: false,
+        errorMessage: null
+      };
     }
     case LOG_IN: {
       return {
         ...state,
-        isLoggedIn: false,
+        isAuthenticating: true,
         isLoading: true,
         errorMessage: null
-      }
+      };
     }
     case LOG_IN_FAILED: {
       return {
         ...state,
-        isLoggedIn: false,
+        isAuthenticating: false,
         isLoading: false,
-        errorMessage: action.payload
-      }
+        errorMessage: action.payload.message
+      };
     }
     case LOG_IN_SUCCESS: {
+      console.log(action.payload);
       return {
         ...state,
-        isLoggedIn: true,
+        isAuthenticating: false,
+        currentUser: action.user.username,
         isLoading: false,
         errorMessage: null
-      }
+      };
     }
-    
+
     case GET_PUBLIC_JOKES: {
       return {
         ...state,
         isLoading: true,
         errorMessage: null
-      }
+      };
     }
     case GET_PUBLIC_JOKES_FAILED: {
       return {
         ...state,
         isLoading: false,
-        errorMessage: action.payload
-      }
+        errorMessage: action.payload.message
+      };
     }
     case GET_PUBLIC_JOKES_SUCCESS: {
-      console.log(action.payload)
-      const newJokes = state.publicJokes.concat(action.payload)
+      const newJokes = state.publicJokes.concat(action.payload);
+      const filteredJokes = newJokes.filter(joke => {
+        return joke.joke !== "";
+      });
       return {
         ...state,
-        publicJokes: newJokes,
+        publicJokes: filteredJokes,
         isLoading: false,
         errorMessage: null
-      }
+      };
     }
     case GET_PRIVATE_JOKES: {
       return {
         ...state,
         isLoading: true,
         errorMessage: null
-      }
+      };
     }
     case GET_PRIVATE_JOKES_FAILED: {
       return {
         ...state,
         isLoading: false,
-        errorMessage: action.payload
-      }
+        errorMessage: action.payload.message
+      };
     }
+
     case GET_PRIVATE_JOKES_SUCCESS: {
-      console.log(action.payload)
-      const newJokes = state.privateJokes.concat(action.payload)
+      const newJokes = state.privateJokes.concat(action.payload);
+      const filteredJokes = newJokes.filter(joke => {
+        return joke.joke !== "";
+      });
       return {
         ...state,
-        privateJokes: newJokes,
+        privateJokes: filteredJokes,
         isLoading: false,
         errorMessage: null
-      }
+      };
     }
     case ADD_PUBLIC_JOKE: {
-      console.log(action.payload)
+      console.log(action);
       return {
         ...state,
         isLoading: true,
-        errorMessage: null,
-      }
+        errorMessage: null
+      };
     }
     case ADD_PUBLIC_JOKE_FAILED: {
-      console.log(action.payload)
+      console.log(action.payload);
       return {
         ...state,
         isLoading: false,
-        errorMessage: action.payload
-      }
+        errorMessage: action.payload.message
+      };
     }
     case ADD_PUBLIC_JOKE_SUCCESS: {
-      console.log(action.payload)
-      const newJokes = state.publicJokes.concat(action.payload)
+      console.log(action.payload);
+      const newJokes = state.publicJokes.concat(action.payload);
       return {
         ...state,
         publicJokes: newJokes,
         isLoading: false,
         errorMessage: null
-      }
+      };
     }
     case ADD_PRIVATE_JOKE: {
       return {
         ...state,
         isLoading: true,
-        errorMessage: null,
-      }
+        errorMessage: null
+      };
     }
     case ADD_PRIVATE_JOKE_FAILED: {
-      console.log(action.payload)
+      console.log(action.payload);
       return {
         ...state,
         isLoading: false,
-        errorMessage: action.payload
-      }
+        errorMessage: action.payload.message
+      };
     }
     case ADD_PRIVATE_JOKE_SUCCESS: {
-      console.log(action.payload)
-      const newJokes = state.privateJokes.concat(action.payload)
+      console.log(action.payload);
+      const newJokes = state.privateJokes.concat(action.payload);
       return {
         ...state,
         privateJokes: newJokes,
         isLoading: false,
         errorMessage: null
-      }
+      };
     }
     case DELETE_PUBLIC_JOKE: {
-      console.log(action.payload)
+      console.log(action.payload);
       return {
         ...state,
         isLoading: true,
-        errorMessage: null,
-      }
+        errorMessage: null
+      };
     }
     case DELETE_PUBLIC_JOKE_FAILED: {
-      console.log(action.payload)
+      console.log(action.payload);
       return {
         ...state,
         isLoading: false,
         errorMessage: action.payload
+      };
     }
-  }
     case DELETE_PUBLIC_JOKE_SUCCESS: {
-      console.log(action.payload)
+      console.log(action.payload);
       return {
         ...state,
         isLoading: false,
         errorMessage: null
-      }
+      };
     }
     case DELETE_PRIVATE_JOKE: {
       return {
         ...state,
         isLoading: true,
-        errorMessage: null,
-      }
+        errorMessage: null
+      };
     }
     case DELETE_PRIVATE_JOKE_FAILED: {
-      console.log(action.payload)
+      console.log(action.payload);
       return {
         ...state,
         isLoading: false,
         errorMessage: action.payload
+      };
     }
-  }
     case DELETE_PRIVATE_JOKE_SUCCESS: {
-      console.log(action.payload)
+      console.log(action.payload);
       return {
         ...state,
         isLoading: false,
         errorMessage: null
-      }
+      };
     }
     case EDIT_PRIVATE_JOKE: {
-      console.log(action.payload)
+      console.log(action.payload);
       return {
         ...state,
         isLoading: true,
-        errorMessage: null,
-      }
+        errorMessage: null
+      };
     }
     case EDIT_PRIVATE_JOKE_FAILED: {
-      console.log(action.payload)
+      console.log(action.payload);
       return {
         ...state,
         isLoading: false,
         errorMessage: action.payload
+      };
     }
-  }
     case EDIT_PRIVATE_JOKE_SUCCESS: {
-      console.log(action.payload)
+      console.log(action.payload);
       return {
         ...state,
         isLoading: false,
         errorMessage: null
+      };
     }
-  }
     default:
-      return state
+      return state;
   }
-}
+};

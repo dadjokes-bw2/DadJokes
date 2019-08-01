@@ -1,4 +1,5 @@
 import axios from 'axios'
+import jwtDecode from 'jwt-decode'
 
 //Sign-up action
 export const SIGN_UP = 'SIGN_UP'  
@@ -52,7 +53,11 @@ export function signUp(username, password) {
         return axios.post("https://backend-dadjokes.herokuapp.com/api/auth/register", user)
             .then((res) => {
                 console.log(res)
-                dispatch({type: SIGN_UP_SUCCESS, payload: res.data})
+                dispatch({
+                    type: SIGN_UP_SUCCESS, 
+                    payload: res.data,
+                    user: jwtDecode(res.data.password)
+                })
             })
             .catch((err) => {
                 console.log(err)
@@ -69,9 +74,13 @@ export function login(username, password) {
 
         return axios.post("https://backend-dadjokes.herokuapp.com/api/auth/login", user)
             .then((res) => {
-                console.log(res)
                 localStorage.setItem('token', res.data.token)
-                dispatch({type: LOG_IN_SUCCESS, payload: res.data})
+                console.log(jwtDecode(res.data.token))
+                dispatch({
+                    type: LOG_IN_SUCCESS, 
+                    payload: res.data, 
+                    user: jwtDecode(res.data.token)
+                })
             })
             .catch((err) => {
                 console.log(err)
@@ -116,11 +125,9 @@ export function addPublicJoke(joke) {
     return dispatch => {
         dispatch({type:ADD_PUBLIC_JOKE})
 
-        const body = {
-            joke
-        }      
+         
 
-        return axios.post("https://backend-dadJokes.herokuapp.com/api/publicJokes", body)
+        return axios.post("https://backend-dadJokes.herokuapp.com/api/publicJokes", {joke})
             .then((res) => {
                 console.log(res)
                 dispatch({type: ADD_PUBLIC_JOKE_SUCCESS, payload: res.data})
