@@ -17,18 +17,18 @@ let dadJokes = [{'id': 1, 'type':'Knock, Knock', 'rating':'G', 'question':'Knock
 { 'id': 14, 'type': 'one line jokes', 'rating': 'G', 'question': 'What did the mushroom say to the fungus?', 'answer': 'You are a fun guy' },
 { 'id': 15, 'type': 'one line jokes', 'rating': 'G', 'question': 'Why couldn\'t the pony sing himself a lullaby?', 'answer': 'He was a little hoarse.' },
 { 'id': 16, 'type': 'one line jokes', 'rating': 'G', 'question': 'What do you call a dog on the beach in the summer?', 'answer': 'A hot dog!' },
-{ 'id': 17, 'type': 'one line jokes', 'rating': 'PG', 'question': 'Why did the superhero flush the toilet?', 'answer': 'Because it was his doodie.' },
+{ 'id': 17, 'type': 'one line jokes', 'rating': 'G', 'question': 'Why did the superhero flush the toilet?', 'answer': 'Because it was his doodie.' },
 { 'id': 18, 'type': 'one line jokes', 'rating': 'G', 'question': 'What did the hat say to the scarf?', 'answer': 'You hang around, I\'ll go on ahead.' },
-{ 'id': 19, 'type': 'one line jokes', 'rating': 'PG', 'question': 'If you\'re American in the living room, what are you in the bathroom?', 'answer': 'Euro-peein\'.' },
+{ 'id': 19, 'type': 'one line jokes', 'rating': 'G', 'question': 'If you\'re American in the living room, what are you in the bathroom?', 'answer': 'Euro-peein\'.' },
 { 'id': 20, 'type': 'one line jokes', 'rating': 'G', 'question': 'What time should you go to the dentist?', 'answer': 'Tooth-hurty.' },
 { 'id': 21, 'type': 'one line jokes', 'rating': 'G', 'question': 'What did one firefly say to another?', 'answer': 'You glow, girl!' },
 { 'id': 22, 'type': 'one line jokes', 'rating': 'G', 'question': 'What did one ocean say to the other?', 'answer': 'Nothing. It just waved.' },
 { 'id': 23, 'type': 'one line jokes', 'rating': 'G', 'question': 'Why did the tomato blush?', 'answer': 'Because he saw the salad dressing.' },
 { 'id': 24, 'type': 'one line jokes', 'rating': 'G', 'question': 'What do you call a blind dinosaur?', 'answer': 'A do-you-think-he-saw-us?' },
 { 'id': 25, 'type': 'one line jokes', 'rating': 'G', 'question': 'What do you call two guys hanging on a window?', 'answer': 'Kurt \'n Rod.' },
-{ 'id': 26, 'type': 'one line jokes', 'rating': 'PG', 'question': 'What kind of bees make milk?', 'answer': 'Boo-bees!' },
+{ 'id': 26, 'type': 'one line jokes', 'rating': 'G', 'question': 'What kind of bees make milk?', 'answer': 'Boo-bees!' },
 { 'id': 27, 'type': 'one line jokes', 'rating': 'G', 'question': 'How do you catch a whole school of fish?', 'answer': 'With bookworms.' },
-{ 'id': 28, 'type': 'one line jokes', 'rating': 'PG', 'question': 'Texting while driving?', 'answer': 'Oh, cell NO!' },
+{ 'id': 28, 'type': 'one line jokes', 'rating': 'G', 'question': 'Texting while driving?', 'answer': 'Oh, cell NO!' },
 { 'id': 29, 'type': 'one line jokes', 'rating': 'G', 'question': 'What did the doughnut say to the loaf of bread?', 'answer': 'If I had as much dough as you, I wouldn\'t be hanging around this hole.' },
 { 'id': 30, 'type': 'one line jokes', 'rating': 'G', 'question': 'How do you find Will Smith when he\'s lost in the snow?', 'answer': 'You just look for fresh prints.' },
 { 'id': 31, 'type': 'one line jokes', 'rating': 'G', 'question': 'Why did the man get fired from the orange juice factory?', 'answer': 'Lack on concentration.' },
@@ -62,7 +62,7 @@ let dadJokes = [{'id': 1, 'type':'Knock, Knock', 'rating':'G', 'question':'Knock
 { 'id': 59, 'type': 'one line jokes', 'rating': 'G', 'question': 'What do you call it when a dinosaur crashes his car?', 'answer': 'Tyrannosaurus wrecks.' },
 { 'id': 60, 'type': 'one line jokes', 'rating': 'G', 'question': 'How do mountains stay warm in the winter?', 'answer': 'Snowcaps.' },
 { 'id': 61, 'type': 'story jokes', 'rating': 'G', 'story': 'After many years, a prisoner is finally released. He runs around yelling, "I\'m free! I\'m Free!" A little kids walks up to him and says, "So what? I\m 4.' },
-{ 'id': 62, 'type': 'story jokes', 'rating': 'PG', 'story': 'You should really thank your Dad on father\'s day. Your mom probably wasn\'t in the mood.' },
+{ 'id': 62, 'type': 'story jokes', 'rating': 'G', 'story': 'You should really thank your Dad on father\'s day. Your mom probably wasn\'t in the mood.' },
 { 'id': 63, 'type': 'Knock, Knock', 'rating': 'G', 'question': 'Knock, knock. Who\'s there? Stopwatch! Stopwatch who?', 'answer': 'Stopwatch you\'re doing and open this door!' },
 { 'id': 64, 'type': 'Knock, Knock', 'rating': 'G', 'question': 'Knock, knock. Who\'s there? Who. Who who?', 'answer': 'Hold on. Is there an owl in here?' },
 { 'id': 65, 'type': 'Knock, Knock', 'rating': 'G', 'question': 'Knock, knock. Who\'s there? Cash. Cash who?', 'answer': 'Thanks, but I\'d rather have some peanuts' },
@@ -116,12 +116,6 @@ let gRated = dadJokes.filter(function(dadJokes) {
 });
 
 console.log(gRated);
-
-let pgRated = dadJokes.filter(function(dadJokes) {
-  return dadJokes.rating === 'PG'
-});
-
-console.log(pgRated);
 
 let mRated = dadJokes.filter(function(dadJokes) {
   return dadJokes.rating === 'M'
